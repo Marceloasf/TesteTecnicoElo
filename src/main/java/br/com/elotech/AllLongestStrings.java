@@ -1,15 +1,24 @@
 package br.com.elotech;
 
-import java.util.Comparator;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class AllLongestStrings {
 	public List<String> longestStrings(List<String> strings) {
-		List<String> longestStrings;
-		strings.sort(Comparator.comparingInt(String::length).reversed());
-		int maxLenght = strings.get(0).length();
-		longestStrings = strings.stream().filter(word -> word.length() == maxLenght).collect(Collectors.toList());
+		List<String> longestStrings = new ArrayList<String>();
+		int maxLenght = 0;
+
+		for (String word : strings) {
+			if (word.length() > maxLenght) {
+				longestStrings.clear();
+				maxLenght = word.length();
+				longestStrings.add(word);
+			} else if (word.length() == maxLenght) {
+				longestStrings.add(word);
+			}
+		}
+
 		return longestStrings;
+
 	}
 }

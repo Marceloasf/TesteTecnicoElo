@@ -3,6 +3,7 @@ package br.com.elotech;
 public class Alphabetic {
 	public String alphabetic(String word) {
 		String finalWord = "";
+
 		for (int x = 0; x < word.length(); x++) {
 			char letter = word.charAt(x);
 			if (letter != ' ') {
@@ -13,11 +14,8 @@ public class Alphabetic {
 				} else {
 					letter++;
 				}
-				
+
 				finalWord = finalWord.concat(String.valueOf(letter));
-				
-			} else {
-				finalWord = finalWord.concat(" ");
 			}
 		}
 		return finalWord;
